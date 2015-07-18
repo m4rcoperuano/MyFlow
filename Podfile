@@ -1,0 +1,8 @@
+pod 'MGBoxKit'
+pod 'MBProgressHUD', '~> 0.8'
+pod 'TSMessages'
+pod 'Reachability', '~> 3.1.1'
+pod 'Underscore.m'
+pod 'XLForm'
+pod 'AMSlideMenu', '~> 1.5.3'
+pod 'MWPhotoBrowser'
