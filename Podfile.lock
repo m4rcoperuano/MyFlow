@@ -1,49 +1,10 @@
 PODS:
-  - AMSlideMenu (1.5.4)
-  - DACircularProgress (2.3.1)
-  - HexColors (2.2.1)
-  - MBProgressHUD (0.9.1)
-  - MGBoxKit (8.0.0):
-    - MGEvents
-    - MGMushParser
-  - MGEvents (1.0.3)
-  - MGMushParser (1.2.1)
-  - MWPhotoBrowser (2.1.1):
-    - DACircularProgress (~> 2.3)
-    - MBProgressHUD (~> 0.9)
-    - SDWebImage (!= 3.7.2, ~> 3.7)
   - Reachability (3.1.1)
-  - SDWebImage (3.7.1):
-    - SDWebImage/Core (= 3.7.1)
-  - SDWebImage/Core (3.7.1)
-  - TSMessages (0.9.12):
-    - HexColors (~> 2.2.0)
-  - Underscore.m (0.2.1)
-  - XLForm (3.0.0)
 
 DEPENDENCIES:
-  - AMSlideMenu (~> 1.5.3)
-  - MBProgressHUD (~> 0.8)
-  - MGBoxKit
-  - MWPhotoBrowser
   - Reachability (~> 3.1.1)
-  - TSMessages
-  - Underscore.m
-  - XLForm
 
 SPEC CHECKSUMS:
-  AMSlideMenu: 8571937703d2b8e187b22c1416be4cafc3532a11
-  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  HexColors: abfd172e329dab59888614ccba6f216cec59289d
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MGBoxKit: ec903e5c62d1b11481d2b3b8a7d5c5c6a9355b65
-  MGEvents: 739ea3e582a8df05bd1044500c7fb6d8f7aff5c8
-  MGMushParser: e5f80531a96a086694103592db4cbad3ffd78fa5
-  MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
-  SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
-  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
-  Underscore.m: b86ca364d60509a39eb9c7886443c063b793aaba
-  XLForm: 10fc7eb9e2d5df21a515fa3a794f4e26319abd0e
 
 COCOAPODS: 0.37.2

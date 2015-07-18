@@ -4,72 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AMSlideMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-DACircularProgress.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-HexColors.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-MBProgressHUD.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-MGBoxKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-MGEvents.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-MGMushParser.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-MWPhotoBrowser-MWPhotoBrowser.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-MWPhotoBrowser.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Reachability.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TSMessages.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Underscore.m.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-XLForm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,77 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06198EA724131CA8DCA54E7C</key>
+		<key>42AD98DFBD69E7AD3196E2DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>100F93FC1CD56DC057B444F2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>12721073DB238A3D7F265C37</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>18B88FFF820D406302BAD47D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1A74FFE6BA5333A02B9EB6CD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>23FF7D433297CA85A507E267</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2557135110D1531D056F097E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>26F68D2E2ED5CF23408CCB7B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4DF51A80EC1EBDA14DA90233</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5C39EDE85F06D50B48ED5954</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>862A0DECA40C63A0EE6279CA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>895B4787882D4DCB7E208870</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9FD88339911AC8E4A8683C18</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D0695CEF607A6B9E5555C009</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F8607861C697A0DDAE934818</key>
+		<key>61020DB48C05958A2CE3AD31</key>
 		<dict>
 			<key>primary</key>
 			<true/>
