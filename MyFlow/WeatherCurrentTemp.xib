@@ -11,34 +11,34 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcX-VI-sca">
-                    <rect key="frame" x="20" y="20" width="560" height="560"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b65-He-Sic">
-                            <rect key="frame" x="222" y="233" width="116" height="94"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b65-He-Sic">
+                            <rect key="frame" x="26" y="480" width="209" height="94"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="116" id="5eB-Rg-W5v"/>
-                                <constraint firstAttribute="height" constant="94" id="KMl-dl-7Nw"/>
+                                <constraint firstAttribute="height" constant="94" id="3rv-ZC-cg7"/>
+                                <constraint firstAttribute="width" constant="209" id="aDW-rX-l10"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="78"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.93185292119565222" green="0.93185292119565222" blue="0.93185292119565222" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="centerY" secondItem="b65-He-Sic" secondAttribute="centerY" id="CPQ-bg-iFK"/>
-                        <constraint firstAttribute="centerX" secondItem="b65-He-Sic" secondAttribute="centerX" id="wrM-dc-oQz"/>
+                        <constraint firstAttribute="bottom" secondItem="b65-He-Sic" secondAttribute="bottom" constant="26" id="Axw-nK-lWg"/>
+                        <constraint firstItem="b65-He-Sic" firstAttribute="leading" secondItem="UcX-VI-sca" secondAttribute="leading" constant="26" id="o75-Jo-0Xl"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="UcX-VI-sca" secondAttribute="bottom" constant="20" id="AU0-vN-Kag"/>
-                <constraint firstAttribute="trailing" secondItem="UcX-VI-sca" secondAttribute="trailing" constant="20" id="FB5-fc-NTV"/>
-                <constraint firstItem="UcX-VI-sca" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="k9W-k5-636"/>
-                <constraint firstItem="UcX-VI-sca" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="y1l-Rx-7Rj"/>
+                <constraint firstAttribute="bottom" secondItem="UcX-VI-sca" secondAttribute="bottom" id="AU0-vN-Kag"/>
+                <constraint firstAttribute="trailing" secondItem="UcX-VI-sca" secondAttribute="trailing" id="FB5-fc-NTV"/>
+                <constraint firstItem="UcX-VI-sca" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="k9W-k5-636"/>
+                <constraint firstItem="UcX-VI-sca" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y1l-Rx-7Rj"/>
             </constraints>
             <connections>
+                <outlet property="containerView" destination="UcX-VI-sca" id="fC6-Cq-PkB"/>
                 <outlet property="temperatureLabel" destination="b65-He-Sic" id="7dx-gl-RxH"/>
             </connections>
         </view>

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol GetWeatherProtocol {
-    func execute(lat: Float, lon: Float) -> GetWeatherResult;
+    func execute(#lat: Double, lon: Double, completeBlock: ((GetWeatherResult) -> Void)!);
 }

@@ -10,35 +10,68 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var backgroundImageView: UIImageView!;
+    
+    private let weatherProtocol = ProtocolFactory.WeatherProtocol();
+    private let userLocationProtocol = ProtocolFactory.UserLocationProtocol();
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorGettingLocation", name: NotificationNames.ErrorRetrievingLocation.rawValue, object: nil);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
-        self.tableView.separatorColor = UIColor.clearColor();
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.separatorColor = UIColor.clearColor();
+        tableView.backgroundColor = UIColor.clearColor();
+        tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
+        getWeatherInfo();
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning();
     }
-}
-
-//MARK: - NSNotificationCenter subs
-extension WeatherViewController {
-    func errorGettingLocation() {
-        let alertController = UIAlertController(title: "Error retrieving location", message: "Unable to get your location", preferredStyle: UIAlertControllerStyle.Alert);
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-            self.dismissViewControllerAnimated(true, completion: nil);
-        }));
-        
-        presentViewController(alertController, animated: true, completion: nil);
+    
+    func getWeatherInfo() {
+        weak var weakSelf = self;
+        userLocationProtocol.execute { (result) -> Void in
+            if (result.statusCode == StatusCodes.Success) {
+                weakSelf!.callApi(result);
+            }
+            else {
+                UIAlertController.showError(errorTitle: "Error Getting Location", errorMessage: "I could not get your location :(", inViewController: weakSelf!);
+            }
+        };
+    }
+    
+    
+    //MARK: - Private Methods
+    private func callApi(result: GetUserLocationResult) {
+        weatherProtocol.execute(lat: result.latitude, lon: result.longtitude) { (weatherResult) -> Void in
+            if (weatherResult.statusCode == StatusCodes.Success)
+            {
+                self.handleWeatherResult(weatherResult);
+            }
+            else
+            {
+                UIAlertController.showError(errorTitle: "Error Getting Weather", errorMessage: "I could not get your weather information :(", inViewController: self);
+            }
+        };
+    }
+ 
+    private func handleWeatherResult(weatherResult: GetWeatherResult)
+    {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            if let cityName = weatherResult.city, let stateName = weatherResult.state {
+                self.title = "\(cityName), \(stateName)";
+            }
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(NotificationNames.WeatherInformationReceived.rawValue, object: weatherResult);
+        })
     }
 }
+
 
 //MARK: - UITableView delegate and source
 extension WeatherViewController : UITableViewDataSource, UITableViewDelegate {
@@ -57,17 +90,12 @@ extension WeatherViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let weatherCurrentTempView = UIView.weatherCurrentTempNib() as! WeatherCurrentTempView;
-        
-        //MARK: Injecting dependencies in WeatherCurrentTempView
-        weatherCurrentTempView.injectDependencies(GetWeatherService(), userLocationProtocol: GetUserLocationService());
-        
-        weatherCurrentTempView.loadCurrentTemperature();
         return weatherCurrentTempView;
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0) { //Weather Current Temp
-            return self.view.frame.height / 2;
+            return self.view.frame.height - 44;
         }
         
         return 0;

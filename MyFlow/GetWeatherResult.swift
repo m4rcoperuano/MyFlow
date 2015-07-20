@@ -9,5 +9,8 @@
 import Foundation
 
 class GetWeatherResult : ResultBase {
-    var temperature : Float?;
+    var city : String?;
+    var state : String?;
+    var zip : String?;
+    var tempInF : Float?;
 }

@@ -28,6 +28,7 @@
 		D02728951B5ACC9300DBF56C /* ResultBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02728941B5ACC9300DBF56C /* ResultBase.swift */; };
 		D02728971B5ACD3900DBF56C /* GetUserLocationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02728961B5ACD3900DBF56C /* GetUserLocationResult.swift */; };
 		D02728991B5ACDC800DBF56C /* GetUserLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02728981B5ACDC800DBF56C /* GetUserLocationProtocol.swift */; };
+		D027289D1B5CA1CC00DBF56C /* ProtocolFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027289C1B5CA1CC00DBF56C /* ProtocolFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D02728941B5ACC9300DBF56C /* ResultBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultBase.swift; sourceTree = "<group>"; };
 		D02728961B5ACD3900DBF56C /* GetUserLocationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserLocationResult.swift; sourceTree = "<group>"; };
 		D02728981B5ACDC800DBF56C /* GetUserLocationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserLocationProtocol.swift; sourceTree = "<group>"; };
+		D027289C1B5CA1CC00DBF56C /* ProtocolFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				D027288C1B5AA0FF00DBF56C /* GetWeatherProtocol.swift */,
 				D02728981B5ACDC800DBF56C /* GetUserLocationProtocol.swift */,
+				D027289C1B5CA1CC00DBF56C /* ProtocolFactory.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				D02728951B5ACC9300DBF56C /* ResultBase.swift in Sources */,
 				D02303C31B5457550079D0CE /* ContainerViewController.swift in Sources */,
 				D02728991B5ACDC800DBF56C /* GetUserLocationProtocol.swift in Sources */,
+				D027289D1B5CA1CC00DBF56C /* ProtocolFactory.swift in Sources */,
 				D02303C51B5458480079D0CE /* SideBarViewController.swift in Sources */,
 				D02728931B5ACBFA00DBF56C /* GetUserLocationService.swift in Sources */,
 				D027288D1B5AA0FF00DBF56C /* GetWeatherProtocol.swift in Sources */,

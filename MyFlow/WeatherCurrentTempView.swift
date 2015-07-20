@@ -11,35 +11,30 @@ import CoreLocation
 
 class WeatherCurrentTempView: UIView {
     @IBOutlet private var temperatureLabel: UILabel!
-
-    private var weatherProtocol : GetWeatherProtocol!;
-    private var userLocationProtocol : GetUserLocationProtocol!;
+    @IBOutlet var containerView: UIView!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateWeather:", name: NotificationNames.WeatherInformationReceived.rawValue, object: nil);
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib();
+        self.backgroundColor = UIColor.clearColor();
+        self.temperatureLabel.textColor = UIColor.whiteColor();
+        self.containerView.backgroundColor = UIColor.clearColor();
     }
     
-    func injectDependencies(weatherProtocol: GetWeatherProtocol, userLocationProtocol: GetUserLocationProtocol) {
-        self.weatherProtocol = weatherProtocol;
-        self.userLocationProtocol = userLocationProtocol;
-    }
     
-    func loadCurrentTemperature() {
-        weak var weakSelf = self;
-        self.userLocationProtocol.execute { (result) -> Void in
-            if (result.statusCode == StatusCodes.Success) {
-                weakSelf!.callApi();
+    //MARK: - NSNotification Implementations
+    func updateWeather(notification: NSNotification)
+    {
+        if let weatherInfo = notification.object as? GetWeatherResult {
+            if let tempF = weatherInfo.tempInF {
+                let tempFInInt : Int = Int(round(tempF));
+                self.temperatureLabel.text = "\(tempFInInt)\u{00B0}";
             }
-            else {
-                NSNotificationCenter.defaultCenter().postNotificationName(NotificationNames.ErrorRetrievingLocation.rawValue, object: nil);
-            }
-        };
-    }
-    
-    
-    //MARK: - Private Methods
-    private func callApi() {
-        NSLog("API called");
+        }
     }
 }
 

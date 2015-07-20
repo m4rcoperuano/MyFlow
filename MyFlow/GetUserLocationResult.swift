@@ -9,6 +9,6 @@
 import UIKit
 
 class GetUserLocationResult: ResultBase {
-    var latitude : Float?;
-    var longtitude : Float?;
+    var latitude : Double!;
+    var longtitude : Double!;
 }

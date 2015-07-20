@@ -9,5 +9,5 @@
 import Foundation
 
 protocol GetUserLocationProtocol {
-    func execute(#completeBlock: ((GetWeatherResult!) -> Void)!);
+    func execute(#completeBlock: ((GetUserLocationResult!) -> Void)!);
 }

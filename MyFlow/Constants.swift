@@ -20,6 +20,7 @@ enum ImageNames : String {
 
 enum InfoPList : String {
     case WeatherAPIKey = "Weather API Key"
+    case WeatherAPIURL = "Weather API URL"
 }
 
 enum NibNames : String {
@@ -27,7 +28,7 @@ enum NibNames : String {
 }
 
 enum NotificationNames : String {
-    case ErrorRetrievingLocation = "NSNotificationErrorRetrievingLocation"
+    case WeatherInformationReceived = "WeatherInformationReceived"
 }
 
 enum StatusCodes : Int {

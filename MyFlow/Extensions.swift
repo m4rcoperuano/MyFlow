@@ -21,7 +21,22 @@ extension UIStoryboard {
 }
 
 extension NSBundle {
-    class func wepApiKey() -> String {
+    class func weatherApiKey() -> String {
         return NSBundle.mainBundle().objectForInfoDictionaryKey(InfoPList.WeatherAPIKey.rawValue) as! String;
+    }
+    
+    class func weatherApiUrl() -> String {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey(InfoPList.WeatherAPIURL.rawValue) as! String;
+    }
+}
+
+extension UIAlertController {
+    class func showError(#errorTitle: String, errorMessage: String, inViewController: UIViewController) {
+        let alertController = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: UIAlertControllerStyle.Alert);
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            inViewController.dismissViewControllerAnimated(true, completion: nil);
+        }));
+
+        inViewController.presentViewController(alertController, animated: true, completion: nil);
     }
 }

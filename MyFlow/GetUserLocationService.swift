@@ -13,10 +13,10 @@ class GetUserLocationService: NSObject, GetUserLocationProtocol, CLLocationManag
     
     private let manager = CLLocationManager();
     private var usersLocation : CLLocation?;
-    private var completeBlock : ((GetWeatherResult!) -> Void)?;
+    private var completeBlock : ((GetUserLocationResult!) -> Void)?;
     
     
-    func execute(#completeBlock: ((GetWeatherResult!) -> Void)!)
+    func execute(#completeBlock: ((GetUserLocationResult!) -> Void)!)
     {
         manager.delegate = self;
         
@@ -51,17 +51,21 @@ class GetUserLocationService: NSObject, GetUserLocationProtocol, CLLocationManag
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         executeCompleteBlockErrorWithMessage("Failed getting location");
+        manager.stopUpdatingLocation();
     }
     
     //MARK: Private methods
     private func executeCompleteBlockSuccess() {
-        var result = GetWeatherResult();
+        var result = GetUserLocationResult();
+        result.latitude = self.usersLocation?.coordinate.latitude;
+        result.longtitude = self.usersLocation?.coordinate.longitude;
+        
         self.completeBlock!(result);
     }
     
     private func executeCompleteBlockErrorWithMessage(message : String)
     {
-        var result = GetWeatherResult();
+        var result = GetUserLocationResult();
         result.statusCode = StatusCodes.Error;
         result.message = message;
         

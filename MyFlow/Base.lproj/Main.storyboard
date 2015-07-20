@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tdg-2D-lBa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Container View Controller-->
@@ -105,6 +106,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Weather Background Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nbx-ty-x8D" userLabel="backgroundImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kxq-fb-HlC">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,14 +125,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PfN-r7-uEF" firstAttribute="top" secondItem="nbx-ty-x8D" secondAttribute="bottom" id="59m-8s-x86"/>
                             <constraint firstItem="kxq-fb-HlC" firstAttribute="bottom" secondItem="PfN-r7-uEF" secondAttribute="top" id="611-8K-MOT"/>
+                            <constraint firstItem="UOQ-6F-0f6" firstAttribute="top" secondItem="nbx-ty-x8D" secondAttribute="bottom" id="6WF-15-Qfm"/>
+                            <constraint firstItem="nbx-ty-x8D" firstAttribute="leading" secondItem="aDP-6X-qL7" secondAttribute="leadingMargin" constant="-16" id="GqW-xm-H7Q"/>
                             <constraint firstItem="kxq-fb-HlC" firstAttribute="leading" secondItem="aDP-6X-qL7" secondAttribute="leading" id="HsJ-iT-c67"/>
+                            <constraint firstItem="nbx-ty-x8D" firstAttribute="top" secondItem="aDP-6X-qL7" secondAttribute="topMargin" id="KKn-DX-kXK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nbx-ty-x8D" secondAttribute="trailing" constant="-16" id="SEh-99-Aoo"/>
                             <constraint firstAttribute="trailing" secondItem="kxq-fb-HlC" secondAttribute="trailing" id="fBE-bE-3RP"/>
                             <constraint firstItem="kxq-fb-HlC" firstAttribute="top" secondItem="aDP-6X-qL7" secondAttribute="top" id="uej-p9-DzK"/>
+                            <constraint firstItem="UOQ-6F-0f6" firstAttribute="top" secondItem="nbx-ty-x8D" secondAttribute="bottom" constant="-64" id="zXB-SR-6Fd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6WF-15-Qfm"/>
+                                <exclude reference="zXB-SR-6Fd"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Weather City" id="M33-Gd-s9x"/>
                     <connections>
+                        <outlet property="backgroundImageView" destination="nbx-ty-x8D" id="Qbi-RF-aTz"/>
                         <outlet property="tableView" destination="kxq-fb-HlC" id="tjr-bt-Rh5"/>
                     </connections>
                 </viewController>
@@ -137,4 +154,7 @@
             <point key="canvasLocation" x="2561" y="696"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Weather Background Placeholder" width="750" height="1334"/>
+    </resources>
 </document>

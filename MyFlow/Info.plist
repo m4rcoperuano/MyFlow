@@ -44,7 +44,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>Weather API Key</key>
-	<string>245c4cc245485e8043a1ce536825caff</string>
+	<string>c0ed16e801a8bcea</string>
+	<key>Weather API URL</key>
+	<string>http://api.wunderground.com/api/</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need your location to update weather and traffic data.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
