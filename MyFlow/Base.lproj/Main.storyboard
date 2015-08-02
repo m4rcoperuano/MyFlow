@@ -51,7 +51,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="gnt-X3-wh1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="gnt-X3-wh1" customClass="SideBarTableViewCell" customModule="MyFlow" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gnt-X3-wh1" id="bGB-HK-xnB">
@@ -85,6 +85,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jDB-pn-Cq6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="xlT-1L-Fc0" kind="relationship" relationship="rootViewController" id="fHe-1a-Cmk"/>
@@ -92,7 +95,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Yo-zh-ikS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1653" y="696"/>
+            <point key="canvasLocation" x="1923" y="174"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eOa-bu-fIS">
+            <objects>
+                <navigationController storyboardIdentifier="TogglVC" id="GTU-Vz-eOG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VAI-s7-5MM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.8784313725490196" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="iNq-zb-wpU" kind="relationship" relationship="rootViewController" id="Qrd-17-orS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a08-jQ-zll" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1923" y="928"/>
         </scene>
         <!--Weather City-->
         <scene sceneID="iIz-6c-Aqz">
@@ -107,10 +131,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Weather Background Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nbx-ty-x8D" userLabel="backgroundImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="-16" y="0.0" width="632" height="600"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kxq-fb-HlC">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1YP-8D-Hf3" userLabel="effectBg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.28000000000000003" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kxq-fb-HlC">
+                                <rect key="frame" x="-16" y="0.0" width="632" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bir-Xs-lLC">
@@ -128,11 +156,15 @@
                             <constraint firstItem="PfN-r7-uEF" firstAttribute="top" secondItem="nbx-ty-x8D" secondAttribute="bottom" id="59m-8s-x86"/>
                             <constraint firstItem="kxq-fb-HlC" firstAttribute="bottom" secondItem="PfN-r7-uEF" secondAttribute="top" id="611-8K-MOT"/>
                             <constraint firstItem="UOQ-6F-0f6" firstAttribute="top" secondItem="nbx-ty-x8D" secondAttribute="bottom" id="6WF-15-Qfm"/>
-                            <constraint firstItem="nbx-ty-x8D" firstAttribute="leading" secondItem="aDP-6X-qL7" secondAttribute="leadingMargin" constant="-16" id="GqW-xm-H7Q"/>
-                            <constraint firstItem="kxq-fb-HlC" firstAttribute="leading" secondItem="aDP-6X-qL7" secondAttribute="leading" id="HsJ-iT-c67"/>
+                            <constraint firstItem="PfN-r7-uEF" firstAttribute="top" secondItem="1YP-8D-Hf3" secondAttribute="bottom" id="AeU-8L-hkV"/>
+                            <constraint firstItem="nbx-ty-x8D" firstAttribute="leading" secondItem="aDP-6X-qL7" secondAttribute="leadingMargin" constant="-32" id="GqW-xm-H7Q"/>
+                            <constraint firstItem="kxq-fb-HlC" firstAttribute="leading" secondItem="aDP-6X-qL7" secondAttribute="leading" constant="-16" id="HsJ-iT-c67"/>
                             <constraint firstItem="nbx-ty-x8D" firstAttribute="top" secondItem="aDP-6X-qL7" secondAttribute="topMargin" id="KKn-DX-kXK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nbx-ty-x8D" secondAttribute="trailing" constant="-16" id="SEh-99-Aoo"/>
-                            <constraint firstAttribute="trailing" secondItem="kxq-fb-HlC" secondAttribute="trailing" id="fBE-bE-3RP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nbx-ty-x8D" secondAttribute="trailing" constant="-32" id="SEh-99-Aoo"/>
+                            <constraint firstItem="1YP-8D-Hf3" firstAttribute="top" secondItem="UOQ-6F-0f6" secondAttribute="bottom" constant="-64" id="WJP-qu-Saa"/>
+                            <constraint firstItem="1YP-8D-Hf3" firstAttribute="leading" secondItem="aDP-6X-qL7" secondAttribute="leadingMargin" constant="-16" id="Yz2-eW-0YE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1YP-8D-Hf3" secondAttribute="trailing" constant="-16" id="dJv-rt-8RO"/>
+                            <constraint firstAttribute="trailing" secondItem="kxq-fb-HlC" secondAttribute="trailing" constant="-16" id="fBE-bE-3RP"/>
                             <constraint firstItem="kxq-fb-HlC" firstAttribute="top" secondItem="aDP-6X-qL7" secondAttribute="top" id="uej-p9-DzK"/>
                             <constraint firstItem="UOQ-6F-0f6" firstAttribute="top" secondItem="nbx-ty-x8D" secondAttribute="bottom" constant="-64" id="zXB-SR-6Fd"/>
                         </constraints>
@@ -146,15 +178,52 @@
                     <navigationItem key="navigationItem" title="Weather City" id="M33-Gd-s9x"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="nbx-ty-x8D" id="Qbi-RF-aTz"/>
+                        <outlet property="effectBg" destination="1YP-8D-Hf3" id="hKU-Gh-Wgz"/>
                         <outlet property="tableView" destination="kxq-fb-HlC" id="tjr-bt-Rh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKF-Zv-oVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2561" y="696"/>
+            <point key="canvasLocation" x="2831" y="174"/>
+        </scene>
+        <!--Toggl-->
+        <scene sceneID="doU-8F-tim">
+            <objects>
+                <viewController id="iNq-zb-wpU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e6m-4w-Dkb"/>
+                        <viewControllerLayoutGuide type="bottom" id="DYx-sa-11O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wBp-Wa-8xm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abW-sD-Oyr">
+                                <rect key="frame" x="223" y="95" width="155" height="155"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155" id="iuU-0g-dCF"/>
+                                    <constraint firstAttribute="width" constant="155" id="z2p-2M-RB6"/>
+                                </constraints>
+                                <state key="normal" image="Sidebar Toggl Icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="abW-sD-Oyr" firstAttribute="top" secondItem="e6m-4w-Dkb" secondAttribute="bottom" constant="31" id="R5L-8M-Tp6"/>
+                            <constraint firstAttribute="centerX" secondItem="abW-sD-Oyr" secondAttribute="centerX" id="yoC-Sy-V6Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Toggl" id="Eba-G8-aCG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h91-H9-hgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2831" y="928"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Sidebar Toggl Icon" width="300" height="300"/>
         <image name="Weather Background Placeholder" width="750" height="1334"/>
     </resources>
 </document>

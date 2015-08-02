@@ -16,6 +16,7 @@ enum StoryBoardID : String {
 enum ImageNames : String {
     case SidebarBackground = "Sidebar Background"
     case SidebarWeatherIcon = "Sidebar Weather Icon"
+    case SidebarTogglIcon = "Sidebar Toggl Icon"
 }
 
 enum InfoPList : String {
@@ -29,9 +30,14 @@ enum NibNames : String {
 
 enum NotificationNames : String {
     case WeatherInformationReceived = "WeatherInformationReceived"
+    case SidebarMenuOptionSelected = "SidebarMenuOptionSelected"
 }
 
 enum StatusCodes : Int {
     case Success = 200
     case Error = 500
+}
+
+enum UserDefaultNames : String {
+    case WeatherInformation = "WeatherInformation"
 }

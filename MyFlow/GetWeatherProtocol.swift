@@ -10,4 +10,6 @@ import Foundation
 
 protocol GetWeatherProtocol {
     func execute(#lat: Double, lon: Double, completeBlock: ((GetWeatherResult) -> Void)!);
+    func clearCache();
+    func getCachedData() -> GetWeatherResult?;
 }

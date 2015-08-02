@@ -13,4 +13,11 @@ class GetWeatherResult : ResultBase {
     var state : String?;
     var zip : String?;
     var tempInF : Float?;
+    var weather : String?;
+    var isNightTime = false;
+    var lastUpdated : NSDate?;
+    var feelsLikeTempInF : Float?;
+    var nowCast : String?;
+    var humidity : String?;
+    var icon : String?;
 }

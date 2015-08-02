@@ -45,6 +45,7 @@ class GetUserLocationService: NSObject, GetUserLocationProtocol, CLLocationManag
             if usersLocation?.horizontalAccuracy <= 100 {
                 manager.stopUpdatingLocation();
                 executeCompleteBlockSuccess();
+                break;
             }
         }
     }

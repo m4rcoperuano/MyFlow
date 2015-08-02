@@ -8,38 +8,12 @@
 
 import UIKit
 
-enum MenuTitles : String {
-    case Weather = "Weather"
-}
-
-class SideBarMenuOptions : NSObject
-{
-    let menuTitle : MenuTitles;
-    let menuIconName : String;
-    
-    init(menuTitle: MenuTitles)
-    {
-        self.menuTitle = menuTitle;
-        
-        var menuIconName : String?;
-        switch (menuTitle)
-        {
-            case MenuTitles.Weather:
-                menuIconName = ImageNames.SidebarWeatherIcon.rawValue;
-            default:
-                menuIconName = ImageNames.SidebarWeatherIcon.rawValue;
-        }
-        
-        self.menuIconName = menuIconName!;
-    }
-}
-
 class SideBarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     
-    let menuOptions = [SideBarMenuOptions(menuTitle: MenuTitles.Weather)];
+    let menuOptions = [SideBarMenuOptions(menuTitle: MenuTitles.Weather), SideBarMenuOptions(menuTitle: MenuTitles.Toggle)];
     let cellIdentifier : String = "Cell";
-    var currentMenuOption = MenuTitles.Weather;
+    var currentMenuOption = SideBarMenuOptions(menuTitle: MenuTitles.Weather); //home page
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +45,7 @@ extension SideBarViewController : UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var tableViewCell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell;
+        var tableViewCell : SideBarTableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SideBarTableViewCell;
         tableViewCell?.backgroundColor = UIColor.clearColor();
         tableViewCell?.textLabel?.textColor = UIColor.whiteColor();
         
@@ -81,16 +55,19 @@ extension SideBarViewController : UITableViewDelegate, UITableViewDataSource
         
         
         let menuOption = self.menuOptions[indexPath.row];
-        tableViewCell?.textLabel?.text = menuOption.menuTitle.rawValue;
-        tableViewCell?.imageView?.image = UIImage(named: menuOption.menuIconName);
+        tableViewCell?.textLabel?.text = "         \(menuOption.menuTitle.rawValue)";
+        tableViewCell?.menuOption = menuOption;
+        
+        let customImageView = UIImageView(frame: CGRectMake(10, 8, 45, 45));
+        customImageView.image = UIImage(named: menuOption.menuIconName);
+        tableViewCell?.contentView.addSubview(customImageView);
         
         return tableViewCell!;
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (cell.textLabel?.text == self.currentMenuOption.rawValue)
-        {
-            cell.setSelected(true, animated: false);
-        }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var tableCell = tableView.cellForRowAtIndexPath(indexPath) as! SideBarTableViewCell;
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(NotificationNames.SidebarMenuOptionSelected.rawValue, object: tableCell.menuOption);
     }
 }

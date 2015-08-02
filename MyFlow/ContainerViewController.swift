@@ -35,11 +35,21 @@ class ContainerViewController: UIViewController {
     
     let expandedOffset: CGFloat = 100;
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "sideBarMenuOptionSelected:", name: NotificationNames.SidebarMenuOptionSelected.rawValue, object: nil);
+    }
+    
     //MARK: - Standard View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.clearColor();
         self.menuPosition = .Left;
-        self.swapCenterViewController(viewControllerName: StoryBoardID.Weather.rawValue);
+        self.addLeftPanelViewController();
+        //Set home view controller
+        
+        
+        self.swapCenterViewController(viewControllerName: self.sideBarViewController.currentMenuOption.menuVCID, didTapOnMenuOption: false);
         // Do any additional setup after loading the view.
     }
 
@@ -51,8 +61,16 @@ class ContainerViewController: UIViewController {
 
     
     // MARK: - Navigation
-    func swapCenterViewController(#viewControllerName: String)
+    func swapCenterViewController(#viewControllerName: String, didTapOnMenuOption: Bool)
     {
+        if (self.centerViewController != nil)
+        {
+            self.centerViewController.willMoveToParentViewController(nil);
+            self.centerViewController.view.removeFromSuperview();
+            self.centerViewController.removeFromParentViewController();
+            self.centerViewController = nil;
+        }
+        
         self.centerViewController = UIStoryboard.mainStoryboard().instantiateViewControllerWithIdentifier(viewControllerName) as! UINavigationController;
         
         self.view.addSubview(self.centerViewController.view);
@@ -64,6 +82,12 @@ class ContainerViewController: UIViewController {
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:");
         self.centerViewController.view.addGestureRecognizer(panGestureRecognizer);
+        
+        if (didTapOnMenuOption)
+        {
+            self.centerViewController.view.frame.origin.x = CGRectGetWidth(self.centerViewController.view.frame) - self.expandedOffset;
+            self.animateLeftPanel(shouldExpand: false);
+        }
     }
     
     func toggleMenu()
@@ -83,7 +107,9 @@ class ContainerViewController: UIViewController {
     // MARK: - Update UI 
     func addMenuButton(#viewController: UIViewController)
     {
-        let menuButton = UIBarButtonItem(title: "Menu", style: UIBarButtonItemStyle.Plain, target: self, action: "toggleMenu");
+        let menuButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "toggleMenu");
+        menuButton.image = UIImage(named: "Menu");
+        menuButton.tintColor = UIColor.whiteColor();
         if (self.menuPosition == .Left)
         {
             viewController.navigationItem.leftBarButtonItem = menuButton;
@@ -159,6 +185,20 @@ class ContainerViewController: UIViewController {
             self.centerViewController.view.layer.shadowOpacity = 0;
         }
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent;
+    }
+    
+    
+    //MARK: Notification observers
+    func sideBarMenuOptionSelected(notification: NSNotification) {
+        var menuOption = notification.object as? SideBarMenuOptions;
+        if (menuOption != nil)
+        {
+            self.swapCenterViewController(viewControllerName: menuOption!.menuVCID, didTapOnMenuOption: true);
+        }
+    }
 }
 
 //MARK: - Gesture Recognizer Delegate
@@ -188,7 +228,7 @@ extension ContainerViewController : UIGestureRecognizerDelegate
             case .Ended:
                 if (self.sideBarViewController != nil) {
                     // animate the side panel open or closed based on whether the view has moved more or less than halfway
-                    let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
+                    let hasMovedGreaterThanHalfway = recognizer.view!.center.x + 50 > view.bounds.size.width
                     animateLeftPanel(shouldExpand: hasMovedGreaterThanHalfway)
                 }
             default:
